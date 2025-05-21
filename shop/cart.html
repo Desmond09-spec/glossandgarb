@@ -51,6 +51,39 @@
                 font-size: 1rem;
             }
 
+            .quantity-controls {
+                margin: 0.5rem 0;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .quantity-controls button {
+                font-size: 1rem;
+                padding: 0.2rem 0.6rem;
+                border: none;
+                border-radius: 5px;
+                background-color: #000;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            .quantity-controls span {
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+
+            .delete-btn {
+                margin-top: 0.8rem;
+                background-color: red;
+                color: white;
+                border: none;
+                padding: 0.5rem 1rem;
+                border-radius: 6px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
             .checkout-btn {
                 background-color: #000;
                 color: #fff;
@@ -77,6 +110,16 @@
             <h1>Your Cart</h1>
         </header>
         <div id="cart-container"></div>
+        <div
+            id="total-container"
+            style="
+                text-align: center;
+                font-size: 1.2rem;
+                font-weight: bold;
+                margin-top: 1rem;
+            "
+        ></div>
+
         <button class="checkout-btn" onclick="checkout()">Checkout</button>
 
         <script>
@@ -85,36 +128,90 @@
                 "Hood Barbie": 10,
                 "D’ Big 3": 10,
                 "Lip-Brightening Cream (Pink Lips Balm)": 10
-                // Add all your actual products
             };
 
             const cartContainer = document.getElementById("cart-container");
-            const cartItems =
-                JSON.parse(localStorage.getItem("cartItems")) || [];
+            const checkoutBtn = document.querySelector(".checkout-btn");
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-            cartItems.forEach(item => {
-                const remaining = productStock[item.name] - item.quantity;
+            function saveCart() {
+                localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            }
 
-                const itemDiv = document.createElement("div");
-                itemDiv.className = "cart-item";
-                itemDiv.innerHTML = `
-            <h2>${item.name}</h2>
-            <p>Price: ₦${item.price}</p>
-            <p>Quantity in cart: ${item.quantity}</p>
-            <p><strong>Remaining stock: ${remaining}</strong></p>
-            <hr/>
-        `;
-                cartContainer.appendChild(itemDiv);
-            });
+            function renderCart() {
+                cartContainer.innerHTML = "";
+
+                if (cartItems.length === 0) {
+                    cartContainer.innerHTML = `<h2 style="text-align:center;">Your cart is empty</h2>`;
+                    checkoutBtn.textContent = "Go to Shop";
+                    checkoutBtn.onclick = () => {
+                        window.location.href = "shop.html";
+                        document.getElementById("total-container").textContent =
+                            "";
+                    };
+                    return;
+                }
+
+                checkoutBtn.textContent = "Checkout";
+                checkoutBtn.onclick = checkout;
+
+                cartItems.forEach((item, index) => {
+                    const remaining = productStock[item.name] - item.quantity;
+
+                    const itemDiv = document.createElement("div");
+                    itemDiv.className = "cart-item";
+                    itemDiv.innerHTML = `
+        <h2>${item.name}</h2>
+        <p>Price: ₦${item.price.toLocaleString()}</p>
+        <div class="quantity-controls">
+          <button onclick="changeQuantity(${index}, -1)">−</button>
+          <span>${item.quantity}</span>
+          <button onclick="changeQuantity(${index}, 1)">+</button>
+        </div>
+        <p><strong>Remaining stock: ${remaining}</strong></p>
+        <button class="delete-btn" onclick="deleteItem(${index})">Delete</button>
+      `;
+
+                    cartContainer.appendChild(itemDiv);
+                });
+
+                const total = cartItems.reduce(
+                    (sum, item) => sum + item.price * item.quantity,
+                    0
+                );
+                document.getElementById(
+                    "total-container"
+                ).textContent = `Total: ₦${total.toLocaleString()}`;
+            }
+
+            function changeQuantity(index, delta) {
+                const item = cartItems[index];
+                const max = productStock[item.name];
+                const newQty = item.quantity + delta;
+
+                if (newQty >= 1 && newQty <= max) {
+                    cartItems[index].quantity = newQty;
+                    saveCart();
+                    renderCart();
+                }
+            }
+
+            function deleteItem(index) {
+                cartItems.splice(index, 1);
+                saveCart();
+                renderCart();
+            }
 
             function checkout() {
                 const total = cartItems.reduce(
                     (sum, item) => sum + item.price * item.quantity,
                     0
                 );
-                alert(`Ready to pay ₦${total}`);
-                // Flutterwave checkout goes here
+                alert(`Ready to pay ₦${total.toLocaleString()}`);
+                // Flutterwave checkout can go here
             }
+
+            renderCart();
         </script>
     </body>
 </html>
