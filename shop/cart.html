@@ -161,16 +161,18 @@
                     const itemDiv = document.createElement("div");
                     itemDiv.className = "cart-item";
                     itemDiv.innerHTML = `
-        <h2>${item.name}</h2>
-        <p>Price: ₦${item.price.toLocaleString()}</p>
-        <div class="quantity-controls">
-          <button onclick="changeQuantity(${index}, -1)">−</button>
-          <span>${item.quantity}</span>
-          <button onclick="changeQuantity(${index}, 1)">+</button>
-        </div>
-        <p><strong>Remaining stock: ${remaining}</strong></p>
-        <button class="delete-btn" onclick="deleteItem(${index})">Delete</button>
-      `;
+  <img src="${item.image}" alt="${item.name}" style="max-width: 100px; border-radius: 8px; margin-bottom: 0.5rem;" />
+  <h2>${item.name}</h2>
+  <p>Price: ₦${item.price.toLocaleString()}</p>
+  <div class="quantity-controls">
+    <button onclick="changeQuantity(${index}, -1)">−</button>
+    <span>${item.quantity}</span>
+    <button onclick="changeQuantity(${index}, 1)">+</button>
+  </div>
+  <p><strong>Remaining stock: ${remaining}</strong></p>
+  <button class="delete-btn" onclick="deleteItem(${index})">Delete</button>
+`;
+
 
                     cartContainer.appendChild(itemDiv);
                 });

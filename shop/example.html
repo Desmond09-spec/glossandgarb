@@ -1,0 +1,158 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Shopping Cart
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   /* Custom scrollbar hidden for quantity controls */
+    .no-scrollbar::-webkit-inner-spin-button,
+    .no-scrollbar::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .no-scrollbar {
+      -moz-appearance: textfield;
+    }
+  </style>
+ </head>
+ <body class="bg-white font-sans text-black">
+  <div class="max-w-4xl mx-auto px-4 py-10">
+   <h1 class="text-center text-base font-normal mb-8">
+    Your Shopping Cart
+   </h1>
+   <!-- Item 1 -->
+   <div class="flex items-center bg-[#F9F9FC] rounded-md px-4 py-3 mb-4">
+    <img alt="Male model wearing a dark denim shirt, front view" class="w-20 h-20 object-cover rounded" height="80" src="https://storage.googleapis.com/a1aa/image/eec046bd-98b0-47ca-cafa-4fb69a440d18.jpg" width="80"/>
+    <div class="flex-1 ml-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+     <div>
+      <p class="text-sm font-semibold leading-tight">
+       Dark Denim Shirt
+      </p>
+      <p class="text-xs text-gray-400 mt-1">
+       Brand 1234
+      </p>
+     </div>
+     <p class="text-xs text-gray-600 mt-2 sm:mt-0 sm:ml-6">
+      Dark Blue
+     </p>
+     <div class="flex items-center text-xs text-gray-600 border border-gray-200 rounded-md ml-6 select-none" style="min-width: 90px;">
+      <button aria-label="Decrease quantity" class="px-2 py-1 text-lg font-bold text-gray-600 hover:text-gray-900" disabled="">
+       −
+      </button>
+      <span class="px-3 py-1">
+       1
+      </span>
+      <button aria-label="Increase quantity" class="px-2 py-1 text-lg font-bold text-gray-600 hover:text-gray-900">
+       +
+      </button>
+     </div>
+     <p class="text-xs text-blue-700 ml-6 cursor-pointer">
+      $120.00
+     </p>
+    </div>
+   </div>
+   <!-- Item 2 (selected) -->
+   <div class="flex items-center border border-gray-200 rounded-md px-4 py-3 mb-4">
+    <img alt="Male model wearing a sky blue denim trendy jacket" class="w-20 h-20 object-cover rounded" height="80" src="https://storage.googleapis.com/a1aa/image/00fdffd2-f080-4ab7-d3ef-2ee484fcd8bd.jpg" width="80"/>
+    <div class="flex-1 ml-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+     <div>
+      <p class="text-sm font-semibold leading-tight">
+       Denim Trendy Jacket
+      </p>
+      <p class="text-xs text-gray-400 mt-1">
+       Brand 1234
+      </p>
+     </div>
+     <p class="text-xs text-gray-600 mt-2 sm:mt-0 sm:ml-6">
+      Sky Blue
+     </p>
+     <div class="flex items-center text-xs text-gray-600 border border-gray-200 rounded-md ml-6 select-none" style="min-width: 90px;">
+      <button aria-label="Decrease quantity" class="px-2 py-1 text-lg font-bold text-gray-600 hover:text-gray-900" disabled="">
+       −
+      </button>
+      <span class="px-3 py-1">
+       1
+      </span>
+      <button aria-label="Increase quantity" class="px-2 py-1 text-lg font-bold text-gray-600 hover:text-gray-900">
+       +
+      </button>
+     </div>
+    </div>
+    <p class="text-xs text-blue-700 ml-6 cursor-pointer">
+     $120.00
+    </p>
+    <button aria-label="Remove item" class="ml-6 text-gray-400 hover:text-gray-700">
+     <i class="fas fa-times">
+     </i>
+    </button>
+   </div>
+   <!-- Item 3 -->
+   <div class="flex items-center bg-[#F9F9FC] rounded-md px-4 py-3 mb-8">
+    <img alt="Female model wearing a magenta retro shirt" class="w-20 h-20 object-cover rounded" height="80" src="https://storage.googleapis.com/a1aa/image/83bbefa1-c827-4a68-d11e-437391d77dcb.jpg" width="80"/>
+    <div class="flex-1 ml-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+     <div>
+      <p class="text-sm font-semibold leading-tight">
+       Retro Shirt For Women
+      </p>
+      <p class="text-xs text-gray-400 mt-1">
+       Brand 1234
+      </p>
+     </div>
+     <p class="text-xs text-gray-600 mt-2 sm:mt-0 sm:ml-6">
+      Magenta
+     </p>
+     <div class="flex items-center text-xs text-gray-600 border border-gray-200 rounded-md ml-6 select-none" style="min-width: 90px;">
+      <button aria-label="Decrease quantity" class="px-2 py-1 text-lg font-bold text-gray-600 hover:text-gray-900">
+       −
+      </button>
+      <span class="px-3 py-1">
+       2
+      </span>
+      <button aria-label="Increase quantity" class="px-2 py-1 text-lg font-bold text-gray-600 hover:text-gray-900">
+       +
+      </button>
+     </div>
+     <p class="text-xs text-blue-700 ml-6 cursor-pointer">
+      $270.00
+     </p>
+    </div>
+   </div>
+   <!-- Subtotal -->
+   <div class="flex justify-between items-center mb-1">
+    <p class="text-sm font-normal">
+     Subtotal
+    </p>
+    <div class="flex items-center space-x-2">
+     <span class="text-xs bg-[#E6E6FF] text-[#5B5BFF] rounded-full px-2 py-0.5 font-semibold">
+      Promo Code
+     </span>
+     <p class="text-base font-semibold text-[#5B5BFF]">
+      $440
+     </p>
+    </div>
+   </div>
+   <p class="text-[9px] text-gray-400 mb-8 text-center">
+    Shipping taxes and discounts calculated at checkout
+   </p>
+   <!-- Buttons -->
+   <div class="flex gap-4 max-w-md mx-auto">
+    <button class="flex-1 bg-[#0B0D23] text-white text-xs font-semibold rounded-full py-3 px-6 flex items-center justify-center gap-2 hover:bg-[#1a1c3a] transition">
+     <i class="fas fa-chevron-left">
+     </i>
+     Back to Shop
+    </button>
+    <button class="flex-1 bg-[#5B5BFF] text-white text-xs font-semibold rounded-full py-3 px-6 flex items-center justify-center gap-2 hover:bg-[#4a4ae6] transition">
+     Checkout
+     <i class="fas fa-arrow-right">
+     </i>
+    </button>
+   </div>
+  </div>
+ </body>
+</html>
+ 

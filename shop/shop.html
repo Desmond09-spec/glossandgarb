@@ -3978,7 +3978,7 @@ limitations under the License.
                                                             data-tccl="ux2.CONTENT.content4.Featured.Default.Button.Secondary.131994.click,click"
                                                             data-typography="ButtonAlpha"
                                                             class="x-el x-el-a c1-3i c1-3j c1-a2 c1-1p c1-a3 c1-a4 c1-19 c1-6d c1-6j c1-1l c1-1n c1-1m c1-s c1-z c1-4 c1-3d c1-5r c1-8c c1-8d c1-a5 c1-49 c1-a6 c1-a7 c1-b c1-63 c1-a8 c1-3n c1-a9 c1-aa c1-ab c1-3u c1-3v c1-3w c1-3x"
-                                                            onclick="addToCart(event, 'The Lois Bundle', 8100, 10)"
+                                                            onclick="addToCart(event, 'The Lois Bundle', 8100, 10, 'images/the-lois-bundle.jpg')"
                                                             >Add to Cart</a
                                                         >
                                                     </div>
@@ -4305,7 +4305,7 @@ limitations under the License.
                                                             data-tccl="ux2.CONTENT.content4.Featured.Default.Button.Secondary.131995.click,click"
                                                             data-typography="ButtonAlpha"
                                                             class="x-el x-el-a c1-3i c1-3j c1-a2 c1-1p c1-a3 c1-a4 c1-19 c1-6d c1-6j c1-1l c1-1n c1-1m c1-s c1-z c1-4 c1-3d c1-5r c1-8c c1-8d c1-a5 c1-49 c1-ad c1-7c c1-b c1-63 c1-a8 c1-3n c1-ae c1-aa c1-ab c1-3u c1-3v c1-3w c1-3x"
-                                                            onclick="addToCart(event, 'Hood Barbie', 3200, 10)"
+                                                            onclick="addToCart(event, 'Hood Barbie', 3200, 10, 'images/hood-barbie.jpg' )"
                                                             >Add to Cart</a
                                                         >
                                                     </div>
@@ -4653,7 +4653,7 @@ limitations under the License.
                                                             data-tccl="ux2.CONTENT.content4.Featured.Default.Button.Secondary.131996.click,click"
                                                             data-typography="ButtonAlpha"
                                                             class="x-el x-el-a c1-3i c1-3j c1-a2 c1-1p c1-a3 c1-a4 c1-19 c1-6d c1-6j c1-1l c1-1n c1-1m c1-s c1-z c1-4 c1-3d c1-5r c1-8c c1-8d c1-a5 c1-49 c1-a6 c1-a7 c1-b c1-63 c1-a8 c1-3n c1-a9 c1-aa c1-ab c1-3u c1-3v c1-3w c1-3x"
-                                                            onclick="addToCart(event, 'D’ Big 3', 9200, 10)"
+                                                            onclick="addToCart(event, 'D’ Big 3', 9200, 10, 'images/d-big-3.jpg')"
                                                             >Add to Cart</a
                                                         >
                                                     </div>
@@ -4817,7 +4817,7 @@ limitations under the License.
                                                             data-tccl="ux2.CONTENT.content2.Content.Card.Button.Secondary.131997.click,click"
                                                             data-typography="ButtonAlpha"
                                                             class="x-el x-el-a c1-3i c1-3j c1-a2 c1-1p c1-1u c1-am c1-an c1-ao c1-a3 c1-a4 c1-19 c1-6d c1-6j c1-1l c1-1n c1-1m c1-s c1-z c1-3d c1-5r c1-8c c1-8d c1-a5 c1-49 c1-ad c1-7c c1-b c1-63 c1-a8 c1-3n c1-ae c1-aa c1-ab c1-3u c1-3v c1-3w c1-3x"
-                                                            onclick="addToCart(event, 'Lip-Brightening Cream (Pink Lips Balm)', 2000, 10)"
+                                                            onclick="addToCart(event, 'Lip-Brightening Cream (Pink Lips Balm)', 2000, 10, 'images/pink-brightening-cream-pink-lips-balm.jpg')"
                                                             >Add to Cart</a
                                                         >
                                                     </div>
@@ -5031,9 +5031,8 @@ limitations under the License.
             async=""
             type="text/javascript"
         ></script>
-
         <script>
-            function addToCart(event, name, price, maxStock) {
+            function addToCart(event, name, price, maxStock, image) {
                 event.preventDefault();
 
                 let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -5047,7 +5046,7 @@ limitations under the License.
                         existingItem.quantity += 1;
                     }
                 } else {
-                    cart.push({ name, price, quantity: 1 });
+                    cart.push({ name, price, quantity: 1, image });
                 }
 
                 localStorage.setItem("cartItems", JSON.stringify(cart));
