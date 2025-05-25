@@ -5060,9 +5060,14 @@ limitations under the License.
                         >
                             Dismiss
                         </button>
-                        <button type="button" class="btn btn-pink">
-                            Continue
-                        </button>
+                        <button
+    type="button"
+    class="btn btn-pink"
+    onclick="shareOnWhatsApp()"
+>
+    Continue
+</button>
+
                     </div>
                 </div>
             </div>
@@ -5099,23 +5104,36 @@ limitations under the License.
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
         <script>
+            // Define modal element at the top
             const myModal = document.getElementById("myModal");
+
+            // This will hold the selected product name globally
+            let selectedProductName = "";
 
             myModal.addEventListener("show.bs.modal", function (event) {
                 const button = event.relatedTarget;
 
-                // Get data from the button that triggered the modal
+                // Get data attributes
                 const productName = button.getAttribute("data-product-name");
                 const imagePath = button.getAttribute("data-image-path");
 
-                // Update modal title
+                // Store globally for access later
+                selectedProductName = productName;
+
+                // Update modal content
                 const modalTitle = myModal.querySelector("#myModalTitle");
                 modalTitle.textContent = productName;
 
-                // Update the download link
                 const downloadLink = myModal.querySelector("#download-link");
                 downloadLink.href = imagePath;
             });
+
+            function shareOnWhatsApp() {
+                const caption = `Hi, I'm interested in purchasing ${selectedProductName}`;
+                const encodedCaption = encodeURIComponent(caption);
+                const whatsappURL = `https://wa.me/2349016788597?text=${encodedCaption}`;
+                window.open(whatsappURL, "_blank");
+            }
         </script>
     </body>
 </html>
