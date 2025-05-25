@@ -114,6 +114,31 @@ Let's get it↓"
         />
         <meta name="twitter:image:alt" content="Gloss and Garb" />
         <meta name="theme-color" content="#ff69b4" />
+
+        <style>
+            /* Custom pink button */
+            .btn-pink {
+                background-color: #ff4fc0;
+                color: white;
+                border: none;
+            }
+
+            .btn-pink:hover {
+                background-color: #e13aa7;
+            }
+
+            /* Optional gray button */
+            .btn-soft-dark {
+                background-color: #444; /* or use your site's soft black */
+                color: white;
+                border: none;
+            }
+
+            .btn-soft-dark:hover {
+                background-color: #222;
+            }
+        </style>
+
         <style data-inline-fonts="">
             /* cyrillic */
             @font-face {
@@ -3277,7 +3302,7 @@ limitations under the License.
                                             class="x-el x-el-h1 c1-6x c1-3j c1-1m c1-1n c1-7d c1-34 c1-35 c1-25 c1-t c1-1c c1-b c1-c c1-7e c1-3o c1-7f c1-d c1-e c1-f c1-g"
                                         >
                                             <span data-ux="Element" class=""
-                                                >The Bundle</span
+                                                >The Lois Bundle</span
                                             >
                                         </h1>
                                     </div>
@@ -3962,6 +3987,8 @@ limitations under the License.
                                                             type="button"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#myModal"
+                                                            data-product-name="The Lois Bundle"
+                                                            data-image-path="images/the-lois-bundle.jpg"
                                                             >Get Yours Now!</a
                                                         >
                                                     </div>
@@ -4291,6 +4318,8 @@ limitations under the License.
                                                             type="button"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#myModal"
+                                                            data-product-name="Hood Barbie"
+                                                            data-image-path="images/hood-barbie.jpg"
                                                             >Get Yours Now!</a
                                                         >
                                                     </div>
@@ -4641,6 +4670,8 @@ limitations under the License.
                                                             type="button"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#myModal"
+                                                            data-product-name="D' Big 3"
+                                                            data-image-path="images/d-big-3.jpg"
                                                             >Get Yours Now!</a
                                                         >
                                                     </div>
@@ -4804,6 +4835,11 @@ limitations under the License.
                                                             data-tccl="ux2.CONTENT.content2.Content.Card.Button.Secondary.131997.click,click"
                                                             data-typography="ButtonAlpha"
                                                             class="x-el x-el-a c1-3i c1-3j c1-a2 c1-1p c1-1u c1-am c1-an c1-ao c1-a3 c1-a4 c1-19 c1-6d c1-6j c1-1l c1-1n c1-1m c1-s c1-z c1-3d c1-5r c1-8c c1-8d c1-a5 c1-49 c1-ad c1-7c c1-b c1-63 c1-a8 c1-3n c1-ae c1-aa c1-ab c1-3u c1-3v c1-3w c1-3x"
+                                                            type="button"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#myModal"
+                                                            data-product-name="Lip-Brightening Cream"
+                                                            data-image-path="images/lip-brightening-cream_pink-lips-balm.jpg"
                                                             >Get Yours Now!</a
                                                         >
                                                     </div>
@@ -5003,9 +5039,7 @@ limitations under the License.
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="myModalLabel">
-                            Vertically Centered Modal
-                        </h5>
+                        <h5 class="modal-title" id="myModalTitle"></h5>
                         <button
                             type="button"
                             class="btn-close"
@@ -5014,17 +5048,19 @@ limitations under the License.
                         ></button>
                     </div>
                     <div class="modal-body">
-                        This modal is vertically centered!
+                        You will be redirected to chat with Gloss and Garb on
+                        WhatsApp to get this product. You can download the image
+                        <a id="download-link" href="#" download>here</a>
                     </div>
                     <div class="modal-footer">
                         <button
                             type="button"
-                            class="btn btn-secondary"
+                            class="btn btn-soft-dark"
                             data-bs-dismiss="modal"
                         >
                             Dismiss
                         </button>
-                        <button type="button" class="btn btn-primary">
+                        <button type="button" class="btn btn-pink">
                             Continue
                         </button>
                     </div>
@@ -5061,5 +5097,25 @@ limitations under the License.
 
         <!-- Before </body> -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+            const myModal = document.getElementById("myModal");
+
+            myModal.addEventListener("show.bs.modal", function (event) {
+                const button = event.relatedTarget;
+
+                // Get data from the button that triggered the modal
+                const productName = button.getAttribute("data-product-name");
+                const imagePath = button.getAttribute("data-image-path");
+
+                // Update modal title
+                const modalTitle = myModal.querySelector("#myModalTitle");
+                modalTitle.textContent = productName;
+
+                // Update the download link
+                const downloadLink = myModal.querySelector("#download-link");
+                downloadLink.href = imagePath;
+            });
+        </script>
     </body>
 </html>
