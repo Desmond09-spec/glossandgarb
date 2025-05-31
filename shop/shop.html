@@ -5050,7 +5050,56 @@ limitations under the License.
                     <div class="modal-body">
                         You will be redirected to chat with Gloss and Garb on
                         WhatsApp to get this product. You can download the image
-                        <a id="download-link" href="#" download>here</a>
+                        <a id="download-link" href="#" download>here</a>.
+                        <div>
+                            You can also choose to add this to your list if you
+                            want to purchase multiple products.
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-soft-dark"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                        >
+                            Add to List
+                        </button>
+                        <button
+                            type="button"
+                            class="btn btn-pink"
+                            onclick="shareOnWhatsApp()"
+                        >
+                            Continue
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            Success!
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        The Lois Bundle has successfully been added to your list
+                        👍
                     </div>
                     <div class="modal-footer">
                         <button
@@ -5058,16 +5107,13 @@ limitations under the License.
                             class="btn btn-soft-dark"
                             data-bs-dismiss="modal"
                         >
-                            Dismiss
-                        </button>
-                        <button
-    type="button"
-    class="btn btn-pink"
-    onclick="shareOnWhatsApp()"
->
-    Continue
-</button>
-
+                            Close</button
+                        ><a
+                            href="../list/list.html"
+                            type="button"
+                            class="btn btn-pink"
+                            >Go to List</a
+                        >
                     </div>
                 </div>
             </div>
