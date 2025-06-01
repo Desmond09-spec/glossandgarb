@@ -6430,7 +6430,7 @@ limitations under the License.
             });
 
             function shareOnWhatsApp() {
-                const caption = `Hi, I'm interested in purchasing ${selectedProductName}`;
+                const caption = `Hi, I'm interested in purchasing *${selectedProductName}*`;
                 const encodedCaption = encodeURIComponent(caption);
                 const whatsappURL = `https://wa.me/2349016788597?text=${encodedCaption}`;
                 window.open(whatsappURL, "_blank");
