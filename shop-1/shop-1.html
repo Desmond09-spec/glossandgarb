@@ -140,6 +140,68 @@ Let's get it↓"
             }
         </style>
 
+        <style>
+            #screenshot-toast {
+                position: fixed;
+                bottom: 1.5rem;
+                left: 1rem;
+                right: 1rem;
+                margin: 0 auto;
+                max-width: 600px;
+                background-color: rgba(30, 30, 30, 0.95);
+                color: #fff;
+                padding: 0.75rem 1.25rem;
+                border-radius: 1rem;
+                font-size: 0.95rem;
+                line-height: 1.4;
+                text-align: center;
+                word-wrap: break-word;
+
+                opacity: 0;
+                pointer-events: none;
+                transition:
+                    opacity 0.4s ease,
+                    transform 0.4s ease;
+                z-index: 9999;
+            }
+
+            #screenshot-toast.show {
+                opacity: 1;
+                transform: translateY(-20px);
+                pointer-events: auto;
+            }
+            
+            #screenshot-toast-1 {
+                position: fixed;
+                bottom: 1.5rem;
+                left: 1rem;
+                right: 1rem;
+                margin: 0 auto;
+                max-width: 600px;
+                background-color: rgba(30, 30, 30, 0.95);
+                color: #fff;
+                padding: 0.75rem 1.25rem;
+                border-radius: 1rem;
+                font-size: 0.95rem;
+                line-height: 1.4;
+                text-align: center;
+                word-wrap: break-word;
+
+                opacity: 0;
+                pointer-events: none;
+                transition:
+                    opacity 0.4s ease,
+                    transform 0.4s ease;
+                z-index: 9999;
+            }
+
+            #screenshot-toast-1.show {
+                opacity: 1;
+                transform: translateY(-20px);
+                pointer-events: auto;
+            }
+        </style>
+
         <style data-inline-fonts="">
             /* cyrillic */
             @font-face {
@@ -3418,6 +3480,7 @@ limitations under the License.
                                                             data-bs-target="#myModal"
                                                             data-product-name="The Lois Bundle"
                                                             data-image-path="images/the-lois-bundle.zip"
+                                                            onclick="guided()"
                                                             >Get Yours Now!</a
                                                         >
                                                     </div>
@@ -3704,6 +3767,7 @@ limitations under the License.
                                                             data-bs-target="#myModal"
                                                             data-product-name="Hood Barbie"
                                                             data-image-path="images/hood-barbie.zip"
+                                                            onclick="guided()"
                                                             >Get Yours Now!</a
                                                         >
                                                     </div>
@@ -4011,6 +4075,7 @@ limitations under the License.
                                                             data-bs-target="#myModal"
                                                             data-product-name="D' Big 3"
                                                             data-image-path="images/d-big-3.zip"
+                                                            onclick="guided()"
                                                             >Get Yours Now!</a
                                                         >
                                                     </div>
@@ -4382,6 +4447,7 @@ limitations under the License.
                                                             data-bs-target="#myModal"
                                                             data-product-name="Milkshake Bundle (1)"
                                                             data-image-path="images/milkshake-bundle-1.zip"
+                                                            onclick="guided()"
                                                             >Get Yours Now!</a
                                                         >
                                                     </div>
@@ -4724,6 +4790,7 @@ limitations under the License.
                                                             data-bs-target="#myModal"
                                                             data-product-name="Milkshake Bundle (2)"
                                                             data-image-path="images/milkshake-bundle-2.zip"
+                                                            onclick="guided()"
                                                             >Get Yours Now!</a
                                                         >
                                                     </div>
@@ -4997,6 +5064,7 @@ limitations under the License.
                                                             data-bs-target="#myModal"
                                                             data-product-name="Hydra Glow (2)"
                                                             data-image-path="images/hydra-glow-2.zip"
+                                                            onclick="guided()"
                                                             >Get Yours Now!</a
                                                         >
                                                     </div>
@@ -5270,6 +5338,7 @@ limitations under the License.
                                                             data-bs-target="#myModal"
                                                             data-product-name="Melanin Magic"
                                                             data-image-path="images/melanin-magic.zip"
+                                                            onclick="guided()"
                                                             >Get Yours Now!</a
                                                         >
                                                     </div>
@@ -5482,6 +5551,7 @@ limitations under the License.
                                                             data-bs-target="#myModal"
                                                             data-product-name="Lip-Brightening Cream (Pink Lips Balm)"
                                                             data-image-path="images/lip-brightening-cream_pink-lips-balm.jpg"
+                                                            onclick="guided()"
                                                             >Get Yours Now!</a
                                                         >
                                                     </div>
@@ -5782,6 +5852,7 @@ limitations under the License.
                                                             data-bs-target="#myModal"
                                                             data-product-name="Melanin Magic and Hood Barbie (Combo)"
                                                             data-image-path="images/melanin-magic_and_hood-barbie.zip"
+                                                            onclick="guided()"
                                                             >Get Yours Now!</a
                                                         >
                                                     </div>
@@ -5990,6 +6061,7 @@ limitations under the License.
                                                             data-bs-target="#myModal"
                                                             data-product-name="Hydra Glow"
                                                             data-image-path="images/hydra-glow.jpg"
+                                                            onclick="guided()"
                                                             >Get Yours Now!</a
                                                         >
                                                     </div>
@@ -6316,6 +6388,7 @@ limitations under the License.
                             class="btn btn-soft-dark"
                             data-bs-toggle="modal"
                             data-bs-target="#exampleModal"
+                            onclick="showToast()"
                         >
                             Add to List
                         </button>
@@ -6352,8 +6425,8 @@ limitations under the License.
                         ></button>
                     </div>
                     <div class="modal-body">
-                        The Lois Bundle has successfully been added to your list
-                        👍
+                        The Lois Bundle has successfully been added to your
+                        list.
                     </div>
                     <div class="modal-footer">
                         <button
@@ -6372,6 +6445,35 @@ limitations under the License.
                 </div>
             </div>
         </div>
+
+        <div id="screenshot-toast">
+            Nice! Just don't be a pain when you're actually getting it.
+        </div>
+        <div id="screenshot-toast-1">
+            If you don't have money, don't even think about continuing. Let's be
+            guided.
+        </div>
+
+        <script>
+            function showToast() {
+                const toast = document.getElementById("screenshot-toast");
+                toast.classList.add("show");
+
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 2500); // visible for 2.5 seconds
+            }
+        </script>
+        <script>
+            function guided() {
+                const toast = document.getElementById("screenshot-toast-1");
+                toast.classList.add("show");
+
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 2500); // visible for 2.5 seconds
+            }
+        </script>
 
         <script src="js/script_1.js" crossorigin=""></script>
         <script src="js/UX.4.50.0.js" crossorigin=""></script>
@@ -6429,6 +6531,7 @@ limitations under the License.
             });
 
             function shareOnWhatsApp() {
+                showToast();
                 const caption = `Hi, I want to get *${selectedProductName}*`;
                 const encodedCaption = encodeURIComponent(caption);
                 const whatsappURL = `https://wa.me/2349016788597?text=${encodedCaption}`;
