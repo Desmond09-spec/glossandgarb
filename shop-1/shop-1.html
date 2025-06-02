@@ -170,7 +170,7 @@ Let's get it↓"
                 transform: translateY(-20px);
                 pointer-events: auto;
             }
-            
+
             #screenshot-toast-1 {
                 position: fixed;
                 bottom: 1.5rem;
@@ -2593,7 +2593,6 @@ limitations under the License.
         </script>
     </head>
     <body class="x x-fonts-playfair-display">
-      
         <div
             id="layout-123-d-9-ff-4-df-2-c-4-c-6-b-8664-ae-55-cfc-7-bce-4"
             class="layout layout-layout layout-layout-layout-27 locale-en-GB lang-en"
@@ -6458,6 +6457,10 @@ limitations under the License.
         <script>
             function showToast() {
                 const toast = document.getElementById("screenshot-toast");
+                const toast_3 = document.getElementById("screenshot-toast-1");
+
+                toast_3.classList.remove("show");
+
                 toast.classList.add("show");
 
                 setTimeout(() => {
@@ -6468,6 +6471,10 @@ limitations under the License.
         <script>
             function guided() {
                 const toast = document.getElementById("screenshot-toast-1");
+                const toast_2 = document.getElementById("screenshot-toast");
+
+                toast_2.classList.remove("show");
+
                 toast.classList.add("show");
 
                 setTimeout(() => {
