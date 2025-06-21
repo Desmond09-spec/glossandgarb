@@ -1520,6 +1520,51 @@ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
                 min-height: 100vh;
             }
         </style>
+
+        <style>
+            .scroll-gallery {
+                display: flex;
+                gap: 1rem;
+                overflow-x: hidden;
+                white-space: nowrap;
+                scroll-behavior: smooth;
+                padding: 1rem; /* You can increase this to fine-tune centering */
+                scroll-snap-type: x mandatory;
+                justify-content: start;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+                position: relative;
+            }
+
+            .scroll-gallery::-webkit-scrollbar {
+                display: none;
+            }
+
+            .scroll-gallery > div {
+                flex: 0 0 auto;
+                width: 250px;
+                scroll-snap-align: center; /* 👈 CENTER instead of start */
+            }
+        </style>
+
+        <style>
+            .set-h {
+                height: 70%;
+            }
+        </style>
+
+        <style>
+            .reduce-margin {
+                margin-top: -150px;
+            }
+        </style>
+
+        <style>
+            .scroll-gallery.single-image-gallery {
+                justify-content: center !important;
+            }
+        </style>
+
         <script>
             "use strict";
 
@@ -2279,7 +2324,7 @@ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
                                         >
                                             <div
                                                 data-ux="GridCell"
-                                                class="x-el x-el-div c1-1 c1-2 c1-8g c1-r c1-8p c1-8q c1-34 c1-35 c1-8r c1-8s c1-8t c1-8u c1-b c1-c c1-8v c1-8w c1-8x c1-8y c1-d c1-8z c1-90 c1-91 c1-e c1-f c1-g"
+                                                class="x-el x-el-div scroll-gallery c1-1 c1-2 c1-8g c1-r c1-8p c1-8q c1-34 c1-35 c1-8r c1-8s c1-8t c1-8u c1-b c1-c c1-8v c1-8w c1-8x c1-8y c1-d c1-8z c1-90 c1-91 c1-e c1-f c1-g"
                                             >
                                                 <div
                                                     data-ux="Block"
@@ -2291,31 +2336,125 @@ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
                                                     >
                                                         <source
                                                             media="(max-width: 450px)"
-                                                            srcset="
-                                                                ../shop/images/the-lois-bundle.jpg 1x,
-                                                                ../shop/images/the-lois-bundle.jpg 2x,
-                                                                ../shop/images/the-lois-bundle.jpg 3x
+                                                            srcset="images/the-lois-bundle/Untitled design_20250517_230005_0000.png 1x,
+                                                                images/the-lois-bundle/Untitled design_20250517_230005_0000.png 2x,
+                                                                images/the-lois-bundle/Untitled design_20250517_230005_0000.png 3x
                                                             "
                                                         />
                                                         <source
                                                             media="(min-width: 451px)"
                                                             srcset="
-                                                                ../shop/images/the-lois-bundle.jpg 1x,
-                                                                ../shop/images/the-lois-bundle.jpg 2x,
-                                                                ../shop/images/the-lois-bundle.jpg 3x
+                                                                images/the-lois-bundle/Untitled design_20250517_230005_0000.png 1x,
+                                                                images/the-lois-bundle/Untitled design_20250517_230005_0000.png 2x,
+                                                                images/the-lois-bundle/Untitled design_20250517_230005_0000.png 3x
                                                             "
                                                         />
                                                         <img
                                                             data-ux="Image"
-                                                            src="../shop/images/the-lois-bundle.jpg"
+                                                            src="images/the-lois-bundle/Untitled design_20250517_230005_0000.png"
                                                             class="x-el x-el-img c1-1 c1-2 c1-4 c1-34 c1-32 c1-33 c1-22 c1-24 c1-4e c1-an c1-b c1-c c1-9l c1-d c1-e c1-f c1-g"
+                                                        />
+                                                    </picture>
+                                                </div>
+                                                <div
+                                                    data-ux="Block"
+                                                    class="x-el x-el-div c1-1 c1-2 c1-q c1-b c1-c c1-d c1-e c1-f c1-g"
+                                                >
+                                                    <picture
+                                                        data-lazyimg="true"
+                                                        class="x-el x-el-picture c1-1 c1-2 c1-4 c1-5i c1-2x c1-9i c1-26 c1-b c1-c c1-d c1-e c1-f c1-g"
+                                                    >
+                                                        <source
+                                                            media="(max-width: 450px)"
+                                                            srcset="
+                                                                images/the-lois-bundle/Untitled design_20250518_003622_0000.png 1x,
+                                                                images/the-lois-bundle/Untitled design_20250518_003622_0000.png 2x,
+                                                                images/the-lois-bundle/Untitled design_20250518_003622_0000.png 3x
+                                                            "
+                                                        />
+                                                        <source
+                                                            media="(min-width: 451px)"
+                                                            srcset="
+                                                                images/the-lois-bundle/Untitled design_20250518_003622_0000.png 1x,
+                                                                images/the-lois-bundle/Untitled design_20250518_003622_0000.png 2x,
+                                                                images/the-lois-bundle/Untitled design_20250518_003622_0000.png 3x
+                                                            "
+                                                        />
+                                                        <img
+                                                            data-ux="Image"
+                                                            src="images/the-lois-bundle/Untitled design_20250518_003622_0000.png"
+                                                            class="x-el x-el-img c1-1 c1-2 c1-4 c1-34 c1-32 c1-33 c1-22 c1-24 c1-4e c1-an c1-b c1-c c1-9l c1-d c1-e c1-f c1-g"
+                                                        />
+                                                    </picture>
+                                                </div>
+
+                                                <div
+                                                    data-ux="Block"
+                                                    class="x-el x-el-div c1-1 c1-2 c1-q c1-b c1-c c1-d c1-e c1-f c1-g"
+                                                >
+                                                    <picture
+                                                        data-lazyimg="true"
+                                                        class="x-el x-el-picture c1-1 c1-2 c1-4 c1-5i c1-2x c1-9i c1-26 c1-b c1-c c1-d c1-e c1-f c1-g"
+                                                    >
+                                                        <source
+                                                            media="(max-width: 450px)"
+                                                            srcset="
+                                                                images/the-lois-bundle/Untitled design_20250518_003711_0000.png 1x,
+                                                                images/the-lois-bundle/Untitled design_20250518_003711_0000.png 2x,
+                                                                images/the-lois-bundle/Untitled design_20250518_003711_0000.png 3x
+                                                            "
+                                                        />
+                                                        <source
+                                                            media="(min-width: 451px)"
+                                                            srcset="
+                                                                images/the-lois-bundle/Untitled design_20250518_003711_0000.png 1x,
+                                                                images/the-lois-bundle/Untitled design_20250518_003711_0000.png 2x,
+                                                                images/the-lois-bundle/Untitled design_20250518_003711_0000.png 3x
+                                                            "
+                                                        />
+                                                        <img
+                                                            data-ux="Image"
+                                                            src="images/the-lois-bundle/Untitled design_20250518_003711_0000.png"
+                                                            class="x-el x-el-img c1-1 c1-2 c1-4 c1-34 c1-32 c1-33 c1-22 c1-24 c1-4e c1-an c1-b c1-c c1-9l c1-d c1-e c1-f c1-g"
+                                                        />
+                                                    </picture>
+                                                </div>
+
+                                                <div
+                                                    data-ux="Block"
+                                                    class="x-el x-el-div c1-1 c1-2 c1-q c1-b c1-c c1-d c1-e c1-f c1-g"
+                                                >
+                                                    <picture
+                                                        data-lazyimg="true"
+                                                        class="x-el x-el-picture c1-1 c1-2 c1-4 c1-5i c1-2x c1-9i c1-26 c1-b c1-c c1-d c1-e c1-f c1-g set-h"
+                                                    >
+                                                        <source
+                                                            media="(max-width: 450px)"
+                                                            srcset="
+                                                                images/the-lois-bundle/Untitled design_20250519_102716_0000.png 1x,
+                                                                images/the-lois-bundle/Untitled design_20250519_102716_0000.png 2x,
+                                                                images/the-lois-bundle/Untitled design_20250519_102716_0000.png 3x
+                                                            "
+                                                        />
+                                                        <source
+                                                            media="(min-width: 451px)"
+                                                            srcset="
+                                                                images/the-lois-bundle/Untitled design_20250519_102716_0000.png 1x,
+                                                                images/the-lois-bundle/Untitled design_20250519_102716_0000.png 2x,
+                                                                images/the-lois-bundle/Untitled design_20250519_102716_0000.png 3x
+                                                            "
+                                                        />
+                                                        <img
+                                                            data-ux="Image"
+                                                            src="images/the-lois-bundle/Untitled design_20250519_102716_0000.png"
+                                                            class="x-el x-el-img c1-1 c1-2 c1-4 c1-34 c1-32 c1-33 c1-22 c1-24 c1-4e c1-an c1-b c1-c c1-9l c1-d c1-e c1-f c1-g set-h"
                                                         />
                                                     </picture>
                                                 </div>
                                             </div>
                                             <div
                                                 data-ux="GridCell"
-                                                class="x-el x-el-div c1-1 c1-2 c1-8g c1-r c1-8p c1-8q c1-34 c1-35 c1-8r c1-8s c1-8t c1-b c1-c c1-8v c1-8w c1-8x c1-8y c1-d c1-8z c1-90 c1-e c1-f c1-g"
+                                                class="x-el x-el-div c1-1 c1-2 c1-8g c1-r c1-8p c1-8q c1-34 c1-35 c1-8r c1-8s c1-8t c1-b c1-c c1-8v c1-8w c1-8x c1-8y c1-d c1-8z c1-90 c1-e c1-f c1-g reduce-margin"
                                             >
                                                 <div
                                                     data-ux="Block"
@@ -2464,7 +2603,7 @@ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
                                         >
                                             <div
                                                 data-ux="GridCell"
-                                                class="x-el x-el-div c1-1 c1-2 c1-8g c1-r c1-8p c1-8q c1-34 c1-35 c1-8r c1-8s c1-8t c1-8u c1-b c1-c c1-8v c1-8w c1-8x c1-8y c1-d c1-8z c1-90 c1-91 c1-e c1-f c1-g"
+                                                class="x-el x-el-div scroll-gallery c1-1 c1-2 c1-8g c1-r c1-8p c1-8q c1-34 c1-35 c1-8r c1-8s c1-8t c1-8u c1-b c1-c c1-8v c1-8w c1-8x c1-8y c1-d c1-8z c1-90 c1-91 c1-e c1-f c1-g"
                                             >
                                                 <div
                                                     data-ux="Block"
@@ -2477,22 +2616,22 @@ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
                                                         <source
                                                             media="(max-width: 450px)"
                                                             srcset="
-                                                                ../shop/images/hood-barbie.jpg 1x,
-                                                                ../shop/images/hood-barbie.jpg 2x,
-                                                                ../shop/images/hood-barbie.jpg 3x
+                                                                images/hood-barbie/IMG-20250527-WA0032(1).jpg 1x,
+                                                                images/hood-barbie/IMG-20250527-WA0032(1).jpg 2x,
+                                                                images/hood-barbie/IMG-20250527-WA0032(1).jpg 3x
                                                             "
                                                         />
                                                         <source
                                                             media="(min-width: 451px)"
                                                             srcset="
-                                                                ../shop/images/hood-barbie.jpg 1x,
-                                                                ../shop/images/hood-barbie.jpg 2x,
-                                                                ../shop/images/hood-barbie.jpg 3x
+                                                                images/hood-barbie/IMG-20250527-WA0032(1).jpg 1x,
+                                                                images/hood-barbie/IMG-20250527-WA0032(1).jpg 2x,
+                                                                images/hood-barbie/IMG-20250527-WA0032(1).jpg 3x
                                                             "
                                                         />
                                                         <img
                                                             data-ux="Image"
-                                                            src="../shop/images/hood-barbie.jpg"
+                                                            src="images/hood-barbie/IMG-20250527-WA0032(1).jpg"
                                                             class="x-el x-el-img c1-1 c1-2 c1-4 c1-34 c1-32 c1-33 c1-22 c1-24 c1-4e c1-an c1-b c1-c c1-9l c1-d c1-e c1-f c1-g"
                                                         />
                                                     </picture>
@@ -2877,5 +3016,50 @@ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
             async=""
             type="text/javascript"
         ></script>
+
+        <script>
+const galleries = document.querySelectorAll(".scroll-gallery");
+
+galleries.forEach(gallery => {
+    const originalItems = Array.from(gallery.children);
+
+    if (originalItems.length > 1) {
+        const itemWidth = originalItems[0].offsetWidth + 16;
+        let index = 0;
+        let totalItems = originalItems.length;
+
+        const cloneAndAppend = () => {
+            originalItems.forEach(item => {
+                gallery.appendChild(item.cloneNode(true));
+            });
+            totalItems += originalItems.length;
+        };
+
+        cloneAndAppend();
+
+        const centerOffset = () => {
+            const galleryWidth = gallery.offsetWidth;
+            return index * itemWidth - galleryWidth / 2 + itemWidth / 2;
+        };
+
+        setInterval(() => {
+            index++;
+
+            gallery.scrollTo({
+                left: centerOffset(),
+                behavior: "smooth"
+            });
+
+            if (index >= totalItems - 2) {
+                cloneAndAppend();
+            }
+        }, 1500);
+    } else {
+        // ✅ Just center the image with CSS
+        gallery.classList.add("single-image-gallery");
+    }
+});
+</script>
+
     </body>
 </html>
